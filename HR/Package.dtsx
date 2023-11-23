@@ -11,11 +11,42 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{3D08924E-BE63-4EF8-9733-78F3FE66E676}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{5154F6EE-4723-43A9-BF02-FB5BB1A6A6C1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{13E4BD78-7941-4D12-8E43-B7B7BD800ED2}"
+      DTS:ObjectName="FTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="172.31.1.1:22">
+          <DTS:FtpConnection
+            DTS:ServerName="172.31.1.1"
+            DTS:ServerPort="22"
+            DTS:ServerUserName="hub"
+            DTS:UsePassiveMode="False">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwvJV/S+khUuGhVDsGqqxCwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADS2FsL+w3BUYgOFXkDvXRKAAAAAASAAACgAAAAEAAAAPLErYeUk/oakTd3IzRNjU4oAAAAkko6DuOJo3dJv5sJe9ExEjnw0Hjk0bngieFZTptzg15bo9N9vKzj3xQAAAC/FZjdDHWp5ZbmFeTqEbWGmPHJcw</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[hr_health_care_20231101.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{CC68669A-494F-45A7-86D7-6E0B9D95B066}"
+      DTS:ObjectName="hr_health_care_20231101.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\PBI projects\HR Dashboard New Project\datasets\HR Data collection\hr_health_care_20231101.csv" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[HUB-IT48\MSSQLSERVER01.HR_BI_Test]"
       DTS:CreationName="OLEDB"
@@ -25,7 +56,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=HUB-IT48\MSSQLSERVER01;Initial Catalog=HR_BI_Test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F6FB3A41-3036-46DA-852F-A59CD817C808}HUB-IT48\MSSQLSERVER01.HR_BI_Test;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=HUB-IT48\MSSQLSERVER01;Initial Catalog=HR_BI_Test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{F6FB3A41-3036-46DA-852F-A59CD817C808}HUB-IT48\MSSQLSERVER01.HR_BI_Test;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -40,81 +71,197 @@
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:TextQualifier="_x0022_"
           DTS:CodePage="65001"
-          DTS:ConnectionString="D:\PBI projects\HR Dashboard New Project\datasets\HR Data collection\hr_employee_master_20231107.csv">
+          DTS:ConnectionString="D:\PBI projects\HR Dashboard New Project\datasets\HR Data collection\hr_employee_master_transformed1.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Employee No"
-              DTS:DTSID="{8D25F1AA-FD65-49FF-9E0B-D168FF9C2DC8}"
+              DTS:DTSID="{E0842E48-8C40-47F0-A96F-6E3EE5D772E0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Employee Name"
-              DTS:DTSID="{D1CA0CB4-354E-4F8B-800E-8BE27EB8AF94}"
+              DTS:DTSID="{44AE0FCF-E382-4C8C-A206-ED16A88552B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Company Name"
-              DTS:DTSID="{4E1B3AA9-0095-4C97-9A6F-DA981AB16699}"
+              DTS:DTSID="{B6DFC4D4-E438-4E8A-8EBF-D9465CC95FA2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Position"
-              DTS:DTSID="{A8FE99A4-ABA9-41D8-8B55-51ECCD55A609}"
+              DTS:DTSID="{A746D30D-477B-426A-B266-3CF337D376E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Township"
+              DTS:DTSID="{EA9DC976-746E-406A-8465-33BA7B4B778B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Department"
-              DTS:DTSID="{FA092796-5C14-4E3F-BD03-B5419681AD4C}"
+              DTS:DTSID="{7FA30184-2AB5-4904-A357-17126CFC3C81}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Work Location"
+              DTS:DTSID="{B96EF3D7-3AAC-4CBD-A80B-1354E1886ABF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Photo Name"
+              DTS:DTSID="{21F14375-D684-48A9-AD7B-F9A420693144}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="QR Pass Link"
+              DTS:DTSID="{EF3D2822-9342-4F85-A264-9E3ACF7F799A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:ObjectName="Super Visor"
+              DTS:DTSID="{166AA375-6D42-4F41-9F3C-51F36CC23388}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nationality"
+              DTS:DTSID="{72F16DCA-E03D-42F8-A259-550B74B74B5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Date Of Birth"
-              DTS:DTSID="{755C3881-8A95-45B1-9F30-2540DBD05FD0}"
+              DTS:DTSID="{49AFF3B8-1547-4D2E-8171-02BC0FC64444}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Gender"
-              DTS:DTSID="{12877DA7-E021-4814-90A0-2916776282D4}"
+              DTS:DTSID="{1F196867-BF5A-483B-8EDD-1545EE0E7810}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Marital Status"
+              DTS:DTSID="{8EE1C016-311C-4473-B36A-4E1E106E99CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ethnicity"
+              DTS:DTSID="{BBC5912C-4866-4AE8-B9EB-A497F749016F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Imigran Status"
+              DTS:DTSID="{73B4063B-B45E-4337-AF80-DCF6B61EAD85}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NRIC"
+              DTS:DTSID="{7028BF9C-0EDE-4F5D-8994-CE76EE87A238}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Driving Licence Number"
+              DTS:DTSID="{AD7DBE13-D47B-4A47-AAB5-3CC1AE8DB632}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Tax Identification Number"
+              DTS:DTSID="{70EAE3EA-9FB8-445A-86DA-D22BE7F8B769}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Other ID"
+              DTS:DTSID="{FBFBE24D-0AF9-4396-991E-945044DB01DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Employement Status"
-              DTS:DTSID="{366E9D60-51EE-4617-90BD-842633A41C26}"
+              DTS:DTSID="{1A8110DF-925F-41AE-A59C-E574EA1ED3AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -123,43 +270,331 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Job Title"
-              DTS:DTSID="{20F3AE0F-F460-4E89-B23F-11FFDCAD04B6}"
+              DTS:DTSID="{9BB67E03-9C87-456D-B809-F381F0FD259B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Pay Grade"
-              DTS:DTSID="{1010AD02-A860-4BA9-AC00-3C21F3ACEDDD}"
+              DTS:DTSID="{C84419A3-6569-41A8-B589-950A5A290960}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Work Station ID"
+              DTS:DTSID="{7ABC2F4B-4E06-4523-8463-FEF03F025541}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Current Address"
+              DTS:DTSID="{C60698F8-4604-4AB7-B9F7-AF5776E61F77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Other Address"
+              DTS:DTSID="{A4DD4F55-2AF7-4579-A8BA-385EE70A1972}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Zip Code"
+              DTS:DTSID="{729E28D0-0ED7-4E28-B4E7-B6A84F083AF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{D03D9930-3BC0-45B7-BFE3-8BFF54561419}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{2AE5BD53-2669-4D5F-A753-90E2C1441660}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Home Phone"
+              DTS:DTSID="{162A35A0-FE7B-45E3-89FE-D222AB17D6BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mobile Phone"
+              DTS:DTSID="{FA527658-EC3F-41A8-B8F6-B2DAC1C5F20C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Work Phone"
+              DTS:DTSID="{D8C3FFD7-4558-4626-A0A8-38367F8161D0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Personal Email"
+              DTS:DTSID="{7DA79A86-6636-4C7F-8478-91315040D003}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Work Email"
+              DTS:DTSID="{AA6A48BB-AE48-4832-8761-31E07F72C87D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Joined Date"
-              DTS:DTSID="{6BF3FEE4-88E9-4681-BC19-065130BC9BE7}"
+              DTS:DTSID="{DB51422D-371C-4DA8-B07D-35EEA96A4D00}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Confirmation Date"
+              DTS:DTSID="{BA6CA538-F4E1-4C0D-80CA-37938721EE56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Full Job Title"
-              DTS:DTSID="{BD9028F3-21B3-46F5-9ACE-7DC59DD325B8}"
+              DTS:DTSID="{B9FEA0ED-6D49-43A2-8DA4-FA3685C32F1E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cost Center Code"
+              DTS:DTSID="{44BF05CF-16AB-4D3B-8A23-48C17615B195}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cost Center Name"
+              DTS:DTSID="{6F158AD2-8BF6-4CF5-988A-79E321D8BC05}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Section"
+              DTS:DTSID="{B252CCFA-CA0B-4021-94F9-AE9AF985916E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Sub Section"
+              DTS:DTSID="{FC130FD1-3F9E-43EC-8BE5-65B84D3D6C31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Promotion Date"
+              DTS:DTSID="{8A864189-F71D-48E1-897A-6FEC9C033B76}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nationality Code"
+              DTS:DTSID="{FB46A930-BB1E-41FA-AF7B-99477C0175A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Emergency Name"
+              DTS:DTSID="{8D46D2AF-EA41-4097-8D02-1CC9725F61CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Emergency Relationship"
+              DTS:DTSID="{1A26B14D-85FD-4267-BC60-0A2DC5A851E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Emergency Contact"
+              DTS:DTSID="{06A5BC4A-FF4E-4AC0-8398-B4F78997E5CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Terminate Date"
+              DTS:DTSID="{7C81C76C-36FE-4AEB-ACE5-985DE4124042}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Terminate Reason"
+              DTS:DTSID="{785FABA8-966A-479C-99E9-28ED752B1CE3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discipline Name"
+              DTS:DTSID="{53DD212F-5F47-48D2-9962-83C03FF5374D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discipline Date"
+              DTS:DTSID="{5A4E910E-BD7B-47CF-9B72-AE9D01886C84}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discipline Start Date"
+              DTS:DTSID="{6D7811FD-831E-4CCF-A808-DE494EAD7822}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Discipline End Date"
+              DTS:DTSID="{AD817FAB-B0BD-4825-8455-D68F377FC6D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account Name"
+              DTS:DTSID="{EA2F7BE5-9C5D-4138-9B51-32FA59CFF752}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bank Account"
+              DTS:DTSID="{8FACE696-FBC2-4981-9E40-DF34A18B1E5C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bank Branch"
+              DTS:DTSID="{1EA042A4-D7D8-4605-AFCB-41D5405BF59E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bank Name"
+              DTS:DTSID="{2E72660B-0974-4A9F-986B-4868046335E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="250"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Job Status Code"
+              DTS:DTSID="{8B80E018-5A4F-45D6-B244-ECC63C66F86B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="250"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Terminate Date"
-              DTS:DTSID="{44BDE86C-D306-4F37-874B-26BD1482441F}"
+              DTS:ObjectName="Grade Category"
+              DTS:DTSID="{129B3F42-4507-4BB5-B928-B988907FBE7B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -432,10 +867,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Employee No]"
-                          length="50"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Employee No]"
                           name="Employee No"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -454,10 +889,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Employee Name]"
-                          length="50"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Employee Name]"
                           name="Employee Name"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -476,10 +911,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Company Name]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Company Name]"
                           name="Company Name"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -498,10 +933,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Position]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Position]"
                           name="Position"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -520,10 +955,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Department]"
                           name="Department"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -542,10 +977,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date Of Birth]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Date Of Birth]"
                           name="Date Of Birth"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -564,10 +999,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
-                          length="50"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
                           name="Gender"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -586,10 +1021,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Employement Status]"
-                          length="50"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Employement Status]"
                           name="Employement Status"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -611,7 +1046,7 @@
                           length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Job Title]"
                           name="Job Title"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -630,10 +1065,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Pay Grade]"
-                          length="50"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Pay Grade]"
                           name="Pay Grade"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -652,10 +1087,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Joined Date]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Joined Date]"
                           name="Joined Date"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -674,10 +1109,10 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Full Job Title]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Full Job Title]"
                           name="Full Job Title"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -696,10 +1131,230 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Terminate Date]"
-                          length="100"
+                          length="250"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Terminate Date]"
                           name="Terminate Date"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Work Station ID]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Work Station ID]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Work Station ID]"
+                          name="Work Station ID"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Cost Center Code]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cost Center Code]"
+                          length="500"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Cost Center Code]"
+                          name="Cost Center Code"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Cost Center Name]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cost Center Name]"
+                          length="500"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Cost Center Name]"
+                          name="Cost Center Name"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Promotion Date]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Promotion Date]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Promotion Date]"
+                          name="Promotion Date"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Name]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline Name]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Name]"
+                          name="Discipline Name"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Date]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline Date]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Date]"
+                          name="Discipline Date"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Start Date]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline Start Date]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Start Date]"
+                          name="Discipline Start Date"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline End Date]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline End Date]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline End Date]"
+                          name="Discipline End Date"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Grade Category]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Grade Category]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Grade Category]"
+                          name="Grade Category"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Job Status Code]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Status Code]"
+                          length="250"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Job Status Code]"
+                          name="Job Status Code"
+                          truncationRowDisposition="IgnoreFailure">
                           <properties>
                             <property
                               dataType="System.Boolean"
@@ -718,49 +1373,49 @@
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Employee No]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Employee No" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Employee Name]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Employee Name" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Company Name]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Company Name" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Position]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Position" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Department]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Department" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Date Of Birth]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Date Of Birth" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Gender" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Employement Status]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Employement Status" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Title]"
@@ -772,26 +1427,296 @@
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Pay Grade]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Pay Grade" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Joined Date]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Joined Date" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Full Job Title]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Full Job Title" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Terminate Date]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Terminate Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Township]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Township" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Work Location]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Work Location" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Photo Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Photo Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[QR Pass Link]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="QR Pass Link" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Super Visor]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Super Visor" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Nationality]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Nationality" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Marital Status]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Marital Status" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ethnicity]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Ethnicity" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Imigran Status]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Imigran Status" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NRIC]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="NRIC" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Driving Licence Number]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Driving Licence Number" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Tax Identification Number]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Tax Identification Number" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Other ID]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Other ID" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Work Station ID]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Work Station ID" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Current Address]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Current Address" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Other Address]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Other Address" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Zip Code]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Zip Code" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Country]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Home Phone]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Home Phone" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Mobile Phone]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Mobile Phone" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Work Phone]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Work Phone" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Personal Email]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Personal Email" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Work Email]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Work Email" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Confirmation Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Confirmation Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cost Center Code]"
+                          codePage="65001"
+                          dataType="str"
+                          length="500"
+                          name="Cost Center Code" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Cost Center Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="500"
+                          name="Cost Center Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Section]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Section" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Sub Section]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Sub Section" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Promotion Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Promotion Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Nationality Code]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Nationality Code" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Emergency Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Emergency Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Emergency Relationship]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Emergency Relationship" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Emergency Contact]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Emergency Contact" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Terminate Reason]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Terminate Reason" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline Start Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline Start Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Discipline End Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline End Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Account Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Account Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Bank Account]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Bank Account" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Bank Branch]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Bank Branch" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Bank Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Bank Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Job Status Code]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Job Status Code" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Grade Category]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Grade Category" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -899,7 +1824,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Employee No]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="250"
                           cachedName="Employee No"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee No]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Employee No]" />
@@ -907,7 +1832,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Employee Name]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="250"
                           cachedName="Employee Name"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee Name]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Employee Name]" />
@@ -915,7 +1840,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Company Name]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Company Name"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company Name]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Company Name]" />
@@ -923,7 +1848,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Position]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Position"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Position]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Position]" />
@@ -931,7 +1856,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Department]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Department"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Department]" />
@@ -939,7 +1864,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date Of Birth]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Date Of Birth"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date Of Birth]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Date Of Birth]" />
@@ -947,7 +1872,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="250"
                           cachedName="Gender"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]" />
@@ -955,7 +1880,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Employement Status]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="250"
                           cachedName="Employement Status"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employement Status]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Employement Status]" />
@@ -971,7 +1896,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pay Grade]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="250"
                           cachedName="Pay Grade"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pay Grade]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Pay Grade]" />
@@ -979,7 +1904,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Joined Date]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Joined Date"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Joined Date]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Joined Date]" />
@@ -987,7 +1912,7 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Full Job Title]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Full Job Title"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Full Job Title]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Full Job Title]" />
@@ -995,10 +1920,90 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Terminate Date]"
                           cachedCodepage="65001"
                           cachedDataType="str"
-                          cachedLength="100"
+                          cachedLength="250"
                           cachedName="Terminate Date"
                           externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Terminate Date]"
                           lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Terminate Date]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Work Station ID]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Work Station ID"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Work Station ID]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Work Station ID]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cost Center Code]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="Cost Center Code"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cost Center Code]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Cost Center Code]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cost Center Name]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="500"
+                          cachedName="Cost Center Name"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cost Center Name]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Cost Center Name]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Promotion Date]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Promotion Date"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Promotion Date]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Promotion Date]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discipline Name]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Discipline Name"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline Name]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Name]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discipline Date]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Discipline Date"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline Date]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Date]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discipline Start Date]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Discipline Start Date"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline Start Date]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline Start Date]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discipline End Date]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Discipline End Date"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline End Date]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Discipline End Date]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Grade Category]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Grade Category"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Grade Category]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Grade Category]" />
+                        <inputColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Job Status Code]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="250"
+                          cachedName="Job Status Code"
+                          externalMetadataColumnId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job Status Code]"
+                          lineageId="Package\emp_sequence\employee_table_data_flow\Flat File Source.Outputs[Flat File Source Output].Columns[Job Status Code]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1006,49 +2011,49 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee No]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Employee No" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee Name]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Employee Name" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company Name]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Company Name" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Position]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Position" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Department" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date Of Birth]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Date Of Birth" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Gender" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employement Status]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Employement Status" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job Title]"
@@ -1060,26 +2065,86 @@
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pay Grade]"
                           codePage="65001"
                           dataType="str"
-                          length="50"
+                          length="250"
                           name="Pay Grade" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Joined Date]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Joined Date" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Full Job Title]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Full Job Title" />
                         <externalMetadataColumn
                           refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Terminate Date]"
                           codePage="65001"
                           dataType="str"
-                          length="100"
+                          length="250"
                           name="Terminate Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Work Station ID]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Work Station ID" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cost Center Code]"
+                          codePage="65001"
+                          dataType="str"
+                          length="500"
+                          name="Cost Center Code" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cost Center Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="500"
+                          name="Cost Center Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Promotion Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Promotion Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline Name]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline Name" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline Start Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline Start Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discipline End Date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Discipline End Date" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Grade Category]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Grade Category" />
+                        <externalMetadataColumn
+                          refId="Package\emp_sequence\employee_table_data_flow\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Job Status Code]"
+                          codePage="65001"
+                          dataType="str"
+                          length="250"
+                          name="Job Status Code" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1135,16 +2200,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="206.666666666667,42.6666666666667"
+          Size="206.4,42.4"
           Id="Package\emp_sequence\employee_table_data_flow"
-          TopLeft="1.75000005587938,33.3508811209452" />
+          TopLeft="1.75000005587935,48.9508812449229" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="217.333333333334,130.666666666667"
-          Size="217.333333333334,173.333333333334"
+          PanelSize="217.6,191.2"
+          Size="217.6,234.4"
           Id="Package\emp_sequence"
-          TopLeft="68.1249989848584,126.578949750956" />
+          TopLeft="83.124998388812,96.245616176555" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1154,27 +2219,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\emp_sequence\employee_table_data_flow\Flat File Source"
-          TopLeft="90.6249986495822,14.3684213230815" />
-        <NodeLayout
-          Size="174.666666666667,42.6666666666667"
+          Size="192.8,41.6"
           Id="Package\emp_sequence\employee_table_data_flow\OLE DB Destination"
-          TopLeft="81.8749987799675,113.578949506263" />
+          TopLeft="219.999991257986,209.733335000144" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\emp_sequence\employee_table_data_flow\Flat File Source"
+          TopLeft="226.458326585384,75.9017551454378" />
         <EdgeLayout
           Id="Package\emp_sequence\employee_table_data_flow.Paths[Flat File Source Output]"
-          TopLeft="168.583332048108,57.0350879897481">
+          TopLeft="313.429158921685,117.501755145438">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.5438615165149"
+              EndConnector="0,92.2315798547062"
               Start="0,0"
-              End="0,49.0438615165149">
+              End="0,84.7315798547062">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.0438615165149" />
+                    End="0,84.7315798547062" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
